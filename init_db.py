@@ -3,9 +3,9 @@ import jwt
 from secret import secret
 
 def init():
-    connection = sqlite3.connect('database.db')
+    connection = sqlite3.connect('db/database.db')
 
-    with open('schema.sql') as f:
+    with open('db/schema.sql') as f:
         connection.executescript(f.read())
 
     cur = connection.cursor()

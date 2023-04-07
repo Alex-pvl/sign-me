@@ -1,0 +1,19 @@
+version: '3'
+services:
+  db:
+    image: nouchka/sqlite3
+    volumes:
+      - ./db:/db
+    command: sqlite3 /db/database.db < /db/schema.sql
+  web:
+    build: .
+    ports:
+      - "5000:5000"
+    depends_on:
+      - db
+    environment:
+      FLASK_ENV: development
+    volumes:
+      - .:/app
+      - /app/__pycache__
+    command: flask run --host=0.0.0.0

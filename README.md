@@ -14,4 +14,4 @@ tg: @s_pavlyuk1
 
 ### Флаг
 
-`YetiCTF{}`
+`YetiCTF{N1ce_T0k3N_6rO}`

@@ -35,7 +35,7 @@ def login():
     username = request.json.get('username', None)
     password = request.json.get('password', None)
 
-    conn = sqlite3.connect('database.db')
+    conn = sqlite3.connect('db/database.db')
     c = conn.cursor()
     query = f"SELECT id, username, password, jwt FROM users WHERE username=? AND password=?"
     result = c.execute(query, (username, password)).fetchone()
@@ -59,7 +59,7 @@ def get_guest_jwt():
 @app.route('/flag', methods=['GET'])
 @login_required
 def flag():
-    conn = sqlite3.connect('database.db')
+    conn = sqlite3.connect('db/database.db')
     c = conn.cursor()
     query = "SELECT jwt FROM users WHERE username=?"
     result = c.execute(query, ('admin',)).fetchone()
