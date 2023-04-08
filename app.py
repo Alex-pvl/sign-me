@@ -20,9 +20,6 @@ def login_required(func):
         if not jwt:
             return redirect('/')
         
-        # Проверяем, что JWT токен корректный
-        # (в этом примере проверка не реализована)
-        
         return func(*args, **kwargs)
     return wrapper
 
