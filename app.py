@@ -18,7 +18,7 @@ def login_required(func):
     def wrapper(*args, **kwargs):
         jwt = request.cookies.get('jwt')
         if not jwt:
-            return redirect(url_for('login'))
+            return redirect('/')
         
         # Проверяем, что JWT токен корректный
         # (в этом примере проверка не реализована)

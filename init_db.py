@@ -14,7 +14,7 @@ def init():
 
     # Добавление записи админа в таблицу пользователей
     cur.execute("INSERT INTO users (username, password, jwt) VALUES (?, ?, ?)",
-            ('admin', 'admin', admin_token))
+            ('admin', 'e59bc09e-cf17-4957-80d3-a72202f6c310', admin_token))
 
     connection.commit()
     connection.close()
